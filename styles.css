@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(219, 172, 219);
+}
+
+canvas {
+    border: 1px solid black;
+    background-color: gainsboro;
+    align-items: center;
+  }

@@ -16,14 +16,14 @@ Si el usuario no elige una de las opciones obligatorias durante 3 rondas seguida
 - como jugador quiero ver título del juego
 - como jugador quiero distinguir tablero del resto de la web 
 - como jugador quiero poder decidir cuando empieza el juego
-- *START BUTTON
+  *START BUTTON
 - como jugador quiero que se muestre objetivo/instrucciones
-- *CUADRO DIALOGO POR CLICAR START
+  *CUADRO DIALOGO POR CLICAR START
 - como jugador quiero poder ver cuales son los comandos de movimiento
-- *RIGHT OF LEFT
+  *RIGHT OF LEFT
 - como jugador quiero saber cuantos movimientos tengo
 - como jugador quiero ver cuales son las opciones elegibles
-- *MOSTRAR DOS ITEMS
+ *MOSTRAR DOS ITEMS
 - como jugador quiero poder elegir la opción usando un comando teclado
 - como jugador quiero ver cuantas vueltas quedan para terminar el juego
 - como jugador quiero saber que la elección se ha hecho (descontar 1 del movements restantes) 
@@ -32,9 +32,7 @@ Si el usuario no elige una de las opciones obligatorias durante 3 rondas seguida
 - como jugador tengo un score aunque no se muestre. Decidirá el resultado del juego
 - como jugador quiero saber que se ha acabado el juego
 - como ​jugador quiero ver el resultado de mis elecciones
-- 
 - asignacion valores a items
-- 
 
 ## Backlog
 - como jugador quiero ver a mi personaje moviendose hacia la opción elegida
