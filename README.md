@@ -3,22 +3,18 @@
 El juego consiste en hacer elección entre dos opciones que se mostrarán en cada vuelta.
 El jugador deberá ir eligiendo una de las opciones. Cada opción tiene un valor, y el resultado del juego se calculará en base al resultado de los puntos obtenidos.
 
-REGLAS DEL JUEGO
-Hay 7 rondas.
-Como usuario tengo que hacer las elecciones de cada vuelta teniendo en cuenta el total y la suma de todas las elecciones.
-Hay elecciones que tienen más puntos y otras con menos.
-Hay dos escenarios posibles finales.
-Hay dos elecciones que el jugador tiene que elegir
-Si el usuario no elige una de las opciones (+) durante 3 rondas seguidas, penalización en el score que lleva a resultado 2.
-
-
 ​
 ## Reglas del juego  
+Hay 7 rondas.
+Como usuario tengo que hacer las elecciones de cada vuelta teniendo en cuenta el total y la suma de todas las elecciones.
+Hay dos escenarios resultado posibles.
+Hay dos tipos de items elegibles: obligatorias y no obligatorias
+Si el usuario no elige una de las opciones obligatorias durante 3 rondas seguidas, penalización en el score que lleva a resultado 2.
 ​
 ## MVP - User stories
-como jugador quiero ver le tablero de juego
+como jugador quiero ver el tablero de juego
 como jugador quiero ver título del juego
-
+como jugador quiero distinguir tablero del resto de la web 
 como jugador quiero poder decidir cuando empieza el juego
 *START BUTTON
 como jugador quiero que se muestre objetivo/instrucciones
@@ -79,7 +75,7 @@ como jugador quiero ver un aspecto diferente para cada opcion
 ## Links
 ​
 ### Git
-Repositorio: 
+Repositorio: https://github.com/irensvm/PROJECT-GAME
 ​
 // Deploy: (no ahora, para un futuro)
 ​
