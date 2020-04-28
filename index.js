@@ -17,12 +17,18 @@ class Game {
     constructor(canvas){
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
-        this.player;
+        this.playerpoints = 0;
         this.greatChoices = [];
         this.necessaryChoices = [];
-        this.GameOver = false;
+        this.gameOver = false;
+        this.rondas = 7;
     }
    
+
+
+    choose(greatChoices,necessaryChoices) {
+       
+   } 
 
 
 
