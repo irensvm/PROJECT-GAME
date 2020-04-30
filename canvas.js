@@ -37,9 +37,9 @@
     }
     function updateCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-             
+        ctx.drawImage(canvasBckgr,0,0);
         ctx.drawImage(player.img, player.x, player.y);
-        ctx.drawImage(canvasBckgr.img,0,0);
+        
       }
       
   
