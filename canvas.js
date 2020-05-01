@@ -7,29 +7,84 @@
     const canvasBckgr = new Image();
     canvasBckgr.src = "images/life_choice_02 640.png";
 
+
     canvasBckgr.onload = function() {
         ctx.drawImage(canvasBckgr,0,0);
+
+
+
     }
 
+    
 
 
     const player = {
         img: null,
-        x: 300,
-        y: 300,
+        x: 200,
+        y: 200,
         speed: 100,
-        size: 100,
+        
         loadImg: function () {
             this.img = new Image();
             this.img.src = "images/player2.png"
             this.img.onload = () => {
-                ctx.drawImage(this.img, this.x, this.y, this.size,this.speed );
+                ctx.drawImage(this.img, this.x, this.y, this.speed );
             
         }
 
 
     }
     }   
+
+
+   const choicesArray = [
+    {name:"Rest on your sofa",
+    points: 15,},
+    {name:"Eat some waffles, you deserve them",
+    points: 15,},
+    {name:"Drink fancy & healthy smoothie",
+    points: 15,},
+    {name:"Attend a Webinar",
+    points: 5,},
+    {name:"Ironbeers",
+    points: 15,},
+    {name:"Create a manual of good practices",
+    points: 5,},
+    {name:"Join a Hackathon",
+    points: 5,},
+    {name:"Extend your Canvas knowledge",
+    points: -5,},
+    {name:"Review your first LAB: smiles and tears",
+    points: 5,},
+    {name:"Enjoy and browse",
+    points: 7,},
+    {name:"Buy the books that every good programmer should read throughout his life.",
+    points: 5,},
+    {name:"Persevere, don't give up, and learn another programming language",
+    points: 7,},
+    {name:"Plan to nap this Sunday",
+    points: 25,},
+    {name:"Do some code review",
+    points: 7,},
+    {name:"Stop and take a deep breath",
+    points: 25,},
+    {name:"Look for some developer pranks",
+    points: 5,},
+        
+   ];
+   
+   function selectChoice(choicesArray){
+       if (choicesArray === ""){
+           return '';
+       }
+       return choicesArray[Math.floor(Math.random() * choicesArray.lenght)];
+   }
+
+   
+
+
+
+
 
     function startGame() {
         player.loadImg();
