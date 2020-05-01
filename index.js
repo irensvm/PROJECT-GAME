@@ -17,6 +17,8 @@ class Game {
 
         const loop = () => {
             if (!this.gameOver || this.rondas > 5) {
+                selectChoice();
+                
                 //enseñar 2choices
 
             }
@@ -24,6 +26,7 @@ class Game {
             this.clearCanvas();
             this.drawCanvas();
             if (!this.isGameOver) {
+                //show result
 
             }
 
