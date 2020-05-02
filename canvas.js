@@ -15,8 +15,6 @@ canvasBckgr.onload = function () {
 }
 
 
-
-
 const player = {
     img: null,
     x: 200,
@@ -38,7 +36,7 @@ const player = {
 
 function startGame() {
     player.loadImg();
-    choices.printChoices();
+    //printChoices();
 
 }
 
@@ -135,39 +133,53 @@ const choicesArray = [{
     },
 ];
 
-function selectChoice(choicesArray) {
-    if (choicesArray === "") {
+function selectRandom(arrayOptions) {
+    if (arrayOptions === "") {
         return '';
     }
-    return choicesArray[Math.floor(Math.random() * choicesArray.lenght)];
-    console.log(choice);
+    return arrayOptions[Math.floor(Math.random() * arrayOptions.length)];
+};
+
+function pickChoice() {
+    return {
+        choice: selectRandom(choicesArray),
+
+    };
+  
+};
+
+const choice = {
+    x:50,
+    y:50,
+    choices: pickChoice(),
+
+
+
+    printChoices(){
+        ctx.fillText(choices, 10, 50);
+
+    }
 }
 
-function chooseChoice(player,choices) {
-    let chooseChoiceX= (choices.x -10) < player.x && (choices.x + 10) > player.x;
+
+
+function chooseChoice(player, choices) {
+    let chooseChoiceX = (choices.x - 10) < player.x && (choices.x + 10) > player.x;
     let chooseChoiceY = choices.y > (player.y - 10) && choices.y < player.y;
 
-    if (chooseChoiceX || chooseChoiceY){
+    if (chooseChoiceX || chooseChoiceY) {
         return true;
     } else {
         return false
     }
-}
+};
 
 
 
 
 
 
-//const choices = {
-//    name  = selectChoice(),
-//       function printChoices() {
-//           ctx.fillText(this.name, 50, 50);
-//           ctx.font = "Press Start 2P";
-//
-//    }
-//
-//}
+
 
 
 
@@ -181,7 +193,7 @@ const result1 = {
         this.img = new Image();
         this.img.src = "images/congratulations.png"
         this.img.onload = () => {
-            ctx.drawImage(this.img, this.x, this.y,);
+            ctx.drawImage(this.img, this.x, this.y, );
 
         }
 
@@ -190,34 +202,35 @@ const result1 = {
 }
 
 
-const result2 = {img: null,
+const result2 = {
+    img: null,
     x: 0,
     y: 0,
     loadImg: function () {
         this.img = new Image();
         this.img.src = "images/ko.png"
         this.img.onload = () => {
-            ctx.drawImage(this.img, this.x, this.y,);
+            ctx.drawImage(this.img, this.x, this.y, );
 
         }
 
 
     }
 }
-   
-
-        // if(player.x >= canvas.width - 50) {
-        //     player.x = canvas.width - 50;
-        //   } else if (player.x <= 0) {
-        //     player.x = 0;
-        //   }
-        //   if (player.y <= 0) {
-        //     player.y = 0;
-        //   } else if(player.y >= canvas.height - 300) {
-        //     player.y = canvas.height - 300;
-        //   }
-
-        updateCanvas();
 
 
-        document.onkeydown = playerMove;
+// if(player.x >= canvas.width - 50) {
+//     player.x = canvas.width - 50;
+//   } else if (player.x <= 0) {
+//     player.x = 0;
+//   }
+//   if (player.y <= 0) {
+//     player.y = 0;
+//   } else if(player.y >= canvas.height - 300) {
+//     player.y = canvas.height - 300;
+//   }
+
+updateCanvas();
+
+
+document.onkeydown = playerMove;
