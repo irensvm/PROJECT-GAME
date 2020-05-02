@@ -36,12 +36,6 @@ const player = {
 }
 
 
-
-
-
-
-
-
 function startGame() {
     player.loadImg();
     choices.printChoices();
@@ -54,7 +48,6 @@ function updateCanvas() {
     ctx.drawImage(player.img, player.x, player.y);
 
 }
-
 
 
 window.onload = () => {
@@ -113,11 +106,11 @@ const choicesArray = [{
         points: 5,
     },
     {
-        name: "Enjoy and browse",
+        name: "Research, read and stay updated",
         points: 7,
     },
     {
-        name: "Buy the books that every good programmer should read throughout his life.",
+        name: "Buy and read the books that every good programmer should read throughout his life.",
         points: 5,
     },
     {
@@ -147,8 +140,23 @@ function selectChoice(choicesArray) {
         return '';
     }
     return choicesArray[Math.floor(Math.random() * choicesArray.lenght)];
-    console.log();
+    console.log(choice);
 }
+
+function chooseChoice(player,choices) {
+    let chooseChoiceX= (choices.x -10) < player.x && (choices.x + 10) > player.x;
+    let chooseChoiceY = choices.y > (player.y - 10) && choices.y < player.y;
+
+    if (chooseChoiceX || chooseChoiceY){
+        return true;
+    } else {
+        return false
+    }
+}
+
+
+
+
 
 
 //const choices = {
@@ -166,15 +174,35 @@ function selectChoice(choicesArray) {
 
 
 const result1 = {
-    ctx.font = "Press Start 2P";
-    ctx.fillText("You fell asleep at work! You need to find a balance between your desire to grow and your life :(
-    Learning to rest is essential to live better.", 150, 150);
+    img: null,
+    x: 0,
+    y: 0,
+    loadImg: function () {
+        this.img = new Image();
+        this.img.src = "images/congratulations.png"
+        this.img.onload = () => {
+            ctx.drawImage(this.img, this.x, this.y,);
+
+        }
+
+
     }
+}
 
 
-const result2 = {
-    ctx.font = "Press Start 2P";
-    ctx.fillText("Congratulations! Continuing learning is necessary and you know it. Sharing, growing, participating in the community ... is just as important as enjoying all your successes! You found the balance, keep it up!", 150, 150);
+const result2 = {img: null,
+    x: 0,
+    y: 0,
+    loadImg: function () {
+        this.img = new Image();
+        this.img.src = "images/ko.png"
+        this.img.onload = () => {
+            ctx.drawImage(this.img, this.x, this.y,);
+
+        }
+
+
+    }
 }
    
 

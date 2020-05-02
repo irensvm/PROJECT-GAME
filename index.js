@@ -9,7 +9,6 @@ class Game {
         this.gameOver = false;
         this.rondas = 5;
         this.player
-        this.choiceposition
     }
 
     startLoop() {
@@ -26,8 +25,7 @@ class Game {
             this.clearCanvas();
             this.drawCanvas();
             if (!this.isGameOver) {
-                //show result
-
+                result2.loadImg();
             }
 
         }
@@ -49,10 +47,10 @@ class Game {
         });
     }
 
+    
 
 
 
-    choose(greatChoices, necessaryChoices) {
 
-    }
+  
 }
