@@ -13,7 +13,7 @@ canvasBckgr.onload = function () {
 
 
 }
-
+console.log("hola");
 
 const player = {
     img: null,
@@ -145,17 +145,17 @@ function pickChoice() {
         choice: selectRandom(choicesArray),
 
     };
-  
+
 };
 
 const choice = {
-    x:50,
-    y:50,
+    x: 50,
+    y: 50,
     choices: pickChoice(),
 
 
 
-    printChoices(){
+    printChoices() {
         ctx.fillText(choices, 10, 50);
 
     }
