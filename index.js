@@ -1,11 +1,9 @@
-
-
 class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.playerpoints = 0;
-        this.choices = [];
+        this.choices = selected;
         this.gameOver = false;
         this.rondas = 5;
         this.player
@@ -15,15 +13,11 @@ class Game {
         this.player = new Player(this.canvas);
 
         const loop = () => {
-            if (!this.gameOver || this.rondas > 5) {
-                selectChoice();
-                
-                //enseñar 2choices
-
+            if (!this.gameOver || this.rondas > 5 || selected === true) {
+                this.updateCanvas();
+                this.clearCanvas();
+                this.drawCanvas();
             }
-            this.updateCanvas();
-            this.clearCanvas();
-            this.drawCanvas();
             if (!this.isGameOver) {
                 result2.loadImg();
             }
@@ -35,9 +29,10 @@ class Game {
 
     updateCanvas() {
         this.player.update();
-        this.choices.forEach((choices) => {
+        this.choices.forEach(() => {
             choices.update();
         });
+
     }
 
     drawCanvas() {
@@ -47,10 +42,10 @@ class Game {
         });
     }
 
-    
 
 
 
 
-  
+
+
 }

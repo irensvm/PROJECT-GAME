@@ -2,7 +2,7 @@ const canvas = document.getElementById("lifechoices");
 const ctx = canvas.getContext("2d");
 
 //fondo
-
+let selectedChoices = null;
 const canvasBckgr = new Image();
 canvasBckgr.src = "images/life_choice_02 640.png";
 
@@ -13,7 +13,7 @@ canvasBckgr.onload = function () {
 
 
 }
-console.log("hola");
+
 
 const player = {
     img: null,
@@ -25,7 +25,7 @@ const player = {
         this.img = new Image();
         this.img.src = "images/player2.png"
         this.img.onload = () => {
-            ctx.drawImage(this.img, this.x, this.y, this.speed);
+            ctx.drawImage(this.img, this.x, this.y);
 
         }
 
@@ -36,7 +36,8 @@ const player = {
 
 function startGame() {
     player.loadImg();
-    //printChoices();
+    selectedChoices = pickChoice(5);
+    printChoice();
 
 }
 
@@ -44,6 +45,10 @@ function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBckgr, 0, 0);
     ctx.drawImage(player.img, player.x, player.y);
+    selectedChoices.map(i => {
+        ctx.fillText(i.name, i.coord, 300)
+    })
+
 
 }
 
@@ -57,19 +62,28 @@ window.onload = () => {
 function playerMove(event) {
     if (event.code == "ArrowRight") {
         player.x += player.speed;
-        console.log("dcha");
+
     }
+
     if (event.code == "ArrowLeft") {
+
         player.x -= player.speed;
-        console.log("izqda");
 
 
     }
+
+    checkChoices();
+    updateCanvas();
+
 }
+
+
+
 
 const choicesArray = [{
         name: "Rest on your sofa",
         points: 15,
+        img: "/images/choices/couch.png"
     },
     {
         name: "Eat some waffles, you deserve them",
@@ -133,48 +147,85 @@ const choicesArray = [{
     },
 ];
 
-function selectRandom(arrayOptions) {
-    if (arrayOptions === "") {
-        return '';
-    }
-    return arrayOptions[Math.floor(Math.random() * arrayOptions.length)];
-};
-
-function pickChoice() {
-    return {
-        choice: selectRandom(choicesArray),
-
-    };
+function selectRandom() {
+    return Math.floor(Math.random() * choicesArray.length);
 
 };
 
-const choice = {
-    x: 50,
-    y: 50,
-    choices: pickChoice(),
+function pickChoice(n) {
 
+    const selectedChoices = [];
 
-
-    printChoices() {
-        ctx.fillText(choices, 10, 50);
-
+    for (let i = 0; i < n; i++) {
+        selectedChoices.push({
+            name: choicesArray[selectRandom()].name,
+            coord: i * 400
+        })
     }
+    return selectedChoices;
+
+};
+
+//const choice = {
+//x: 50,
+//y: 50,
+//choices: pickChoice(2),
+
+//drawChoices: function () {
+//    ctx.fillText(selectedChoices, 10, 50, canvas.width / 2, canvas.height / 2)
+//}
+//}
+
+
+
+function printChoice() {
+    selectedChoices.map(i => {
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "red";
+        ctx.fillText(i.name, i.coord, 300, canvas.width / 2, canvas.height / 2)
+    })
+
+
 }
 
 
 
-function chooseChoice(player, choices) {
-    let chooseChoiceX = (choices.x - 10) < player.x && (choices.x + 10) > player.x;
-    let chooseChoiceY = choices.y > (player.y - 10) && choices.y < player.y;
 
-    if (chooseChoiceX || chooseChoiceY) {
-        return true;
-    } else {
-        return false
+
+
+
+
+function checkChoices() {
+    if (player.x === 500) {
+        selectRight();
     }
-};
+    if (player.x === 100) {
+        selectLeft();
+    }
+
+}
+
+function selectLeft() {
+    console.log("izqda selecc")
+    selectedChoices[0]
+    console.log(selectedChoices[0]);
+    return startGame();
+}
+
+function selectRight() {
+    console.log("derecha selecc")
+    selectedChoices[1]
+    console.log(selectedChoices[1]);
+    return startGame();
 
 
+}
+
+
+//scorePoints function (){
+
+
+//}
 
 
 
@@ -219,6 +270,8 @@ const result2 = {
 }
 
 
+
+
 // if(player.x >= canvas.width - 50) {
 //     player.x = canvas.width - 50;
 //   } else if (player.x <= 0) {
@@ -230,7 +283,6 @@ const result2 = {
 //     player.y = canvas.height - 300;
 //   }
 
-updateCanvas();
 
 
 document.onkeydown = playerMove;

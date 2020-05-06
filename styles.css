@@ -1,22 +1,21 @@
-body{
+body {
     display: flex;
     flex-direction: row;
-    background-image:url("images/bckg.jpg");
-    font-style: "Press Start 2P";
-
-
+    /*background-image:url("images/bckg.jpg");*/
+    
+    
 }
 
-div.instructions{
-display: block;
-border-radius: 2px;
-
+p {
+    
+    font: "Press Start 2P";
+    
 
 
 }
 
 canvas {
     border: 1px solid black;
-    /*background-image: url("images/life_choice_02 640.png");*/
+    
   }
 
