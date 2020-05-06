@@ -1,5 +1,6 @@
 const canvas = document.getElementById("lifechoices");
 const ctx = canvas.getContext("2d");
+const game = new Game(canvas);
 
 //fondo
 let selectedChoices = null;
@@ -191,10 +192,6 @@ function printChoice() {
 
 
 
-
-
-
-
 function checkChoices() {
     if (player.x === 500) {
         selectRight();
@@ -221,11 +218,6 @@ function selectRight() {
 
 }
 
-
-//scorePoints function (){
-
-
-//}
 
 
 

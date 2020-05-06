@@ -3,7 +3,7 @@ class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.playerpoints = 0;
-        this.choices = selected;
+        this.choices = null;
         this.gameOver = false;
         this.rondas = 5;
         this.player
