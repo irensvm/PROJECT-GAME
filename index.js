@@ -51,6 +51,15 @@ class Game {
     }
 
 
+    hasEnded() {
+        return this.choices.length === this.rondas
+    }
+
+    playerWon() {
+        return true
+    }
+
+
 
 
 

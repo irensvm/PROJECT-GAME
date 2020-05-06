@@ -61,6 +61,11 @@ window.onload = () => {
 }
 
 function playerMove(event) {
+    if (game.hasEnded()) {
+        return
+    }
+
+
     if (event.code == "ArrowRight") {
         player.x += player.speed;
 
@@ -74,7 +79,6 @@ function playerMove(event) {
     }
 
     checkChoices();
-    updateCanvas();
 
 }
 
@@ -92,9 +96,11 @@ function pickChoice(n) {
     const selectedChoices = [];
 
     for (let i = 0; i < n; i++) {
+        const random = selectRandom();
         selectedChoices.push({
-            name: choicesArray[selectRandom()].name,
-            coord: i * 400
+            name: choicesArray[random].name,
+            coord: i * 400,
+            points: choicesArray[random].points,
         })
     }
     return selectedChoices;
@@ -127,6 +133,9 @@ function printChoice() {
 
 
 function checkChoices() {
+
+    updateCanvas();
+
     if (player.x === 500) {
         selectRight();
     }
@@ -140,58 +149,77 @@ function selectLeft() {
     console.log("izqda selecc")
     console.log(selectedChoices[0]);
     game.addSelectedChoice(selectedChoices[0])
-    return startGame();
+    if (game.hasEnded()) {
+        return printEndGame();
+    }
 }
 
 function selectRight() {
     console.log("derecha selecc")
     game.addSelectedChoice(selectedChoices[1])
-    console.log(selectedChoices[1]);
-    return startGame();
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-const result1 = {
-    img: null,
-    x: 0,
-    y: 0,
-    loadImg: function () {
-        this.img = new Image();
-        this.img.src = "images/congratulations.png"
-        this.img.onload = () => {
-            ctx.drawImage(this.img, this.x, this.y, );
-
-        }
-
-
+    if (game.hasEnded()) {
+        return printEndGame();
     }
+    console.log(selectedChoices[1]);
+
+
 }
 
 
-const result2 = {
-    img: null,
-    x: 0,
-    y: 0,
-    loadImg: function () {
-        this.img = new Image();
-        this.img.src = "images/ko.png"
-        this.img.onload = () => {
-            ctx.drawImage(this.img, this.x, this.y, );
+
+
+function printEndGame() {
+    if (game.playerWon() === true) {
+
+        return printresult1();
+    }
+
+    if (game.playerWon() === false) {
+
+        return printresult2();
+    }
+
+}
+
+
+
+
+function printresult1() {
+    console.log("result1");
+    const result1 = {
+        img: null,
+        x: 0,
+        y: 0,
+        loadImg: function () {
+            this.img = new Image();
+            this.img.src = "images/congratulations.png"
+            this.img.onload = () => {
+                ctx.drawImage(this.img, this.x, this.y);
+
+            }
+
 
         }
+    }
+    result1.loadImg();
+}
+
+function printresult2() {
+
+    const result2 = {
+        img: null,
+        x: 0,
+        y: 0,
+        loadImg: function () {
+            this.img = new Image();
+            this.img.src = "images/ko.png"
+            this.img.onload = () => {
+                ctx.drawImage(this.img, this.x, this.y);
+
+            }
 
 
+        }
     }
 }
 
