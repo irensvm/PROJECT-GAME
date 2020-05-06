@@ -3,7 +3,7 @@ class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.playerpoints = 0;
-        this.choices = null;
+        this.choices = [];
         this.gameOver = false;
         this.rondas = 5;
         this.player
@@ -40,6 +40,14 @@ class Game {
         this.choices.forEach((choices) => {
             choices.draw();
         });
+    }
+
+
+    addSelectedChoice(selectedChoice) {
+
+        this.choices.push(selectedChoice)
+
+
     }
 
 
