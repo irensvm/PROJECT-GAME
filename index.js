@@ -56,7 +56,8 @@ class Game {
     }
 
     playerWon() {
-        return true
+        if (this.playerpoints > 25)
+            return true
     }
 
 

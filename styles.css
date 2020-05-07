@@ -1,21 +1,20 @@
 body {
     display: flex;
     flex-direction: row;
-    /*background-image:url("images/bckg.jpg");*/
-    
-    
+    background-image: url("images/nubes.jpg");
+
+
 }
 
 p {
-    
+
     font: "Press Start 2P";
-    
+
 
 
 }
 
 canvas {
     border: 1px solid black;
-    
-  }
 
+}

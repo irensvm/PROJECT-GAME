@@ -46,12 +46,26 @@ function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBckgr, 0, 0);
     ctx.drawImage(player.img, player.x, player.y);
-    selectedChoices.map(i => {
-        ctx.fillText(i.name, i.coord, 300)
-    })
+
+    player.loadImg();
+    selectedChoices = pickChoice(5);
+    printChoice();
 
 
 }
+
+//function updateCanvas() {
+//    ctx.clearRect(0, 0, canvas.width, canvas.height);
+//    ctx.drawImage(canvasBckgr, 0, 0);
+//    ctx.drawImage(player.img, player.x, player.y);
+//    selectedChoices.map(i => {
+//        ctx.fillText(i.name, i.coord, 300)
+//    })
+//    selectedChoices = pickChoice(5);
+//    printChoice();
+//
+//
+//}
 
 
 window.onload = () => {
@@ -77,8 +91,8 @@ function playerMove(event) {
 
 
     }
-
     checkChoices();
+
 
 }
 
@@ -125,23 +139,23 @@ function printChoice() {
         ctx.fillStyle = "red";
         ctx.fillText(i.name, i.coord, 300, canvas.width / 2, canvas.height / 2)
     })
+    console.log();
 
 
 }
 
 
 
-
 function checkChoices() {
 
     updateCanvas();
-
     if (player.x === 500) {
         selectRight();
     }
     if (player.x === 100) {
         selectLeft();
     }
+    updateCanvas();
 
 }
 
@@ -152,6 +166,7 @@ function selectLeft() {
     if (game.hasEnded()) {
         return printEndGame();
     }
+    return updateCanvas();
 }
 
 function selectRight() {
@@ -161,6 +176,8 @@ function selectRight() {
         return printEndGame();
     }
     console.log(selectedChoices[1]);
+    return updateCanvas();
+
 
 
 }
@@ -221,6 +238,7 @@ function printresult2() {
 
         }
     }
+    result2.loadImg();
 }
 
 
