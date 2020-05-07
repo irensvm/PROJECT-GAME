@@ -48,8 +48,8 @@ function updateCanvas() {
     ctx.drawImage(player.img, player.x, player.y);
 
     player.loadImg();
-    selectedChoices = pickChoice(5);
     printChoice();
+    //selectedChoices = pickChoice(5);
 
 
 }
@@ -92,6 +92,8 @@ function playerMove(event) {
 
     }
     checkChoices();
+    updateCanvas();
+
 
 
 }
@@ -166,7 +168,8 @@ function selectLeft() {
     if (game.hasEnded()) {
         return printEndGame();
     }
-    return updateCanvas();
+    selectedChoices = pickChoice(5);
+
 }
 
 function selectRight() {
@@ -176,7 +179,8 @@ function selectRight() {
         return printEndGame();
     }
     console.log(selectedChoices[1]);
-    return updateCanvas();
+
+    selectedChoices = pickChoice(5);
 
 
 
