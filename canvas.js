@@ -24,7 +24,7 @@ const player = {
 
     loadImg: function () {
         this.img = new Image();
-        this.img.src = "images/player2.png"
+        this.img.src = "images/confused.png"
         this.img.onload = () => {
             ctx.drawImage(this.img, this.x, this.y);
 
@@ -37,34 +37,20 @@ const player = {
 
 function startGame() {
     player.loadImg();
-    selectedChoices = pickChoice(5);
-    printChoice();
+    selectedChoices = pickChoice(7);
+
 
 }
 
-//function updateCanvas() {
-//    ctx.clearRect(0, 0, canvas.width, canvas.height);
-//    ctx.drawImage(canvasBckgr, 0, 0);
-//    ctx.drawImage(player.img, player.x, player.y);
-//
-//    player.loadImg();
-//    printChoice();
-//    //selectedChoices = pickChoice(5);
-//
-//
-//}
 
 function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBckgr, 0, 0);
     ctx.drawImage(player.img, player.x, player.y);
+    selectedChoices = pickChoice(2);
     selectedChoices.map(i => {
-        ctx.fillText(i.name, i.coord, 300)
+        printChoice(i);
     })
-    //selectedChoices = pickChoice(5);
-    //printChoice();
-
-
 }
 
 
@@ -117,31 +103,24 @@ function pickChoice(n) {
             name: choicesArray[random].name,
             coord: i * 400,
             points: choicesArray[random].points,
+            img: choicesArray[random].img,
         })
     }
     return selectedChoices;
 
 };
 
-//const choice = {
-//x: 50,
-//y: 50,
-//choices: pickChoice(2),
-
-//drawChoices: function () {
-//    ctx.fillText(selectedChoices, 10, 50, canvas.width / 2, canvas.height / 2)
-//}
-//}
 
 
 
-function printChoice() {
-    selectedChoices.map(i => {
-        ctx.font = "30px Arial";
-        ctx.fillStyle = "red";
-        ctx.fillText(i.name, i.coord, 300, canvas.width / 2, canvas.height / 2)
-    })
-    console.log();
+function printChoice(item) {
+
+    var img = new Image();
+    img.src = item.img;
+    img.onload = () => {
+        ctx.drawImage(img, 300, 300);
+
+    }
 
 
 }
@@ -168,7 +147,7 @@ function selectLeft() {
     if (game.hasEnded()) {
         return printEndGame();
     }
-    return selectedChoices = pickChoice(5);
+    return selectedChoices = pickChoice(7);
 
 }
 
@@ -180,7 +159,7 @@ function selectRight() {
     }
     console.log(selectedChoices[1]);
 
-    return selectedChoices = pickChoice(5);
+    return selectedChoices = pickChoice(7);
 
 
 
