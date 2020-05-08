@@ -2,10 +2,10 @@ class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
-        this.playerpoints = 0;
+        this.playerPoints = 0;
         this.choices = [];
         this.gameOver = false;
-        this.rondas = 5;
+        this.rondas = 7;
         this.player
     }
 
@@ -13,7 +13,7 @@ class Game {
         this.player = new Player(this.canvas);
 
         const loop = () => {
-            if (!this.gameOver || this.rondas > 5 || selected === true) {
+            if (!this.gameOver || this.rondas > 7 || selected === true) {
                 this.updateCanvas();
                 this.clearCanvas();
                 this.drawCanvas();
@@ -49,6 +49,9 @@ class Game {
 
 
     }
+
+
+
 
 
     hasEnded() {

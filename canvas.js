@@ -42,30 +42,30 @@ function startGame() {
 
 }
 
-function updateCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(canvasBckgr, 0, 0);
-    ctx.drawImage(player.img, player.x, player.y);
-
-    player.loadImg();
-    printChoice();
-    //selectedChoices = pickChoice(5);
-
-
-}
-
 //function updateCanvas() {
 //    ctx.clearRect(0, 0, canvas.width, canvas.height);
 //    ctx.drawImage(canvasBckgr, 0, 0);
 //    ctx.drawImage(player.img, player.x, player.y);
-//    selectedChoices.map(i => {
-//        ctx.fillText(i.name, i.coord, 300)
-//    })
-//    selectedChoices = pickChoice(5);
+//
+//    player.loadImg();
 //    printChoice();
+//    //selectedChoices = pickChoice(5);
 //
 //
 //}
+
+function updateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(canvasBckgr, 0, 0);
+    ctx.drawImage(player.img, player.x, player.y);
+    selectedChoices.map(i => {
+        ctx.fillText(i.name, i.coord, 300)
+    })
+    //selectedChoices = pickChoice(5);
+    //printChoice();
+
+
+}
 
 
 window.onload = () => {
@@ -168,7 +168,7 @@ function selectLeft() {
     if (game.hasEnded()) {
         return printEndGame();
     }
-    selectedChoices = pickChoice(5);
+    return selectedChoices = pickChoice(5);
 
 }
 
@@ -180,7 +180,7 @@ function selectRight() {
     }
     console.log(selectedChoices[1]);
 
-    selectedChoices = pickChoice(5);
+    return selectedChoices = pickChoice(5);
 
 
 
@@ -189,18 +189,8 @@ function selectRight() {
 
 
 
-function printEndGame() {
-    if (game.playerWon() === true) {
 
-        return printresult1();
-    }
 
-    if (game.playerWon() === false) {
-
-        return printresult2();
-    }
-
-}
 
 
 
@@ -243,6 +233,19 @@ function printresult2() {
         }
     }
     result2.loadImg();
+}
+
+function printEndGame() {
+    if (game.playerWon() === true) {
+
+        return printresult1();
+    }
+
+    if (game.playerWon() === false) {
+
+        return printresult2();
+    }
+
 }
 
 
