@@ -61,6 +61,9 @@ function updateCanvas() {
 
         i += 1
     })
+    //selectedChoicesText.map(i => {
+    //    ctx.fillText(i.name, i.coord, 300)
+    //})
 }
 
 
@@ -116,17 +119,26 @@ function pickChoice(n) {
 
 
 
+
 function printChoice(item, position) {
 
 
     var img = new Image();
     img.src = item.img;
     img.onload = () => {
-        ctx.drawImage(img, position, canvas.height / 2, 40, 40);
+        ctx.drawImage(img, position, canvas.height / 2, 60, 60);
     }
 }
 
-
+//function printChoiceText() {
+//    selectedChoices.map(i => {
+//        ctx.font = "30px Arial";
+//        ctx.fillStyle = "yellow";
+//        ctx.fillText(i.name, 50, 100, canvas.width / 2, canvas.height / 2)
+//    })
+//
+//
+//}
 
 function checkChoices() {
 
