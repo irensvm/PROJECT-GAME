@@ -22,6 +22,7 @@ const player = {
     y: 200,
     speed: 100,
 
+
     loadImg: function () {
         this.img = new Image();
         this.img.src = "images/confused.png"
@@ -37,7 +38,7 @@ const player = {
 
 function startGame() {
     player.loadImg();
-    selectedChoices = pickChoice(7);
+    selectedChoices = pickChoice(2);
 
 
 }
@@ -47,7 +48,6 @@ function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBckgr, 0, 0);
     ctx.drawImage(player.img, player.x, player.y);
-    selectedChoices = pickChoice(2);
     selectedChoices.map(i => {
         printChoice(i);
     })
@@ -64,24 +64,14 @@ function playerMove(event) {
     if (game.hasEnded()) {
         return
     }
-
-
     if (event.code == "ArrowRight") {
         player.x += player.speed;
-
     }
-
     if (event.code == "ArrowLeft") {
-
         player.x -= player.speed;
-
-
     }
     checkChoices();
     updateCanvas();
-
-
-
 }
 
 
@@ -104,6 +94,9 @@ function pickChoice(n) {
             coord: i * 400,
             points: choicesArray[random].points,
             img: choicesArray[random].img,
+            x: choicesArray[random].x,
+            y: choicesArray[random].y,
+
         })
     }
     return selectedChoices;
@@ -118,7 +111,7 @@ function printChoice(item) {
     var img = new Image();
     img.src = item.img;
     img.onload = () => {
-        ctx.drawImage(img, 300, 300);
+        ctx.drawImage(img, item.x, item.y, 40, 40);
 
     }
 
@@ -129,14 +122,16 @@ function printChoice(item) {
 
 function checkChoices() {
 
-    updateCanvas();
     if (player.x === 500) {
         selectRight();
+        selectedChoices = pickChoice(2);
     }
+
     if (player.x === 100) {
         selectLeft();
+        selectedChoices = pickChoice(2);
     }
-    updateCanvas();
+
 
 }
 

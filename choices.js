@@ -1,81 +1,113 @@
 const choicesArray = [{
         name: "Rest on your sofa",
         points: 15,
-        img: "images/choices/couch.png"
+        img: "images/choices/couch.png",
+        x: 0,
+        y: 0,
     },
     {
         name: "Eat some waffles, you deserve them",
         points: 15,
-        img: "images/choices/waffles.png "
+        img: "images/choices/waffles.png ",
+        x: 100,
+        y: 0,
     },
     {
         name: "Drink fancy & healthy smoothie",
         points: 15,
-        img: "images/choices/smoothie.png "
+        img: "images/choices/smoothie.png ",
+        x: 200,
+        y: 0,
     },
     {
         name: "Attend a Webinar",
         points: 5,
-        img: "images/choices/webinar.png "
+        img: "images/choices/webinar.png ",
+        x: 300,
+        y: 0,
     },
     {
         name: "Ironbeers",
         points: 15,
-        img: "images/choices/ironbeers.png "
+        img: "images/choices/ironbeers.png ",
+        x: 400,
+        y: 0,
     },
     {
         name: "Create a manual of good practices",
         points: 5,
-        img: "images/choices/manual.png "
+        img: "images/choices/manual.png ",
+        x: 500,
+        y: 0,
     },
     {
         name: "Join a Hackathon",
         points: 5,
-        img: "images/choices/hackathon.png "
+        img: "images/choices/hackathon.png ",
+        x: 600,
+        y: 0,
     },
     {
         name: "Extend your Canvas knowledge",
         points: -5,
-        img: "images/choices/canvas.svg "
+        img: "images/choices/canvas.svg ",
+        x: 0,
+        y: 100,
     },
     {
         name: "Review your first LAB: smiles and tears",
         points: 5,
-        img: "images/choices/lab.png "
+        img: "images/choices/lab.png ",
+        x: 100,
+        y: 100,
     },
     {
         name: "Research, read and stay updated",
         points: 7,
         img: "images/choices/research.png  ",
+        x: 200,
+        y: 100,
     },
     {
         name: "Read Eloquent JavasCript",
         points: 5,
         img: "images/choices/books.png ",
+        x: 300,
+        y: 100,
     },
     {
         name: "Learn another programming language",
         points: 7,
         img: "images/choices/lab.png ",
+        x: 400,
+        y: 100,
     },
     {
         name: "Plan to nap this Sunday",
         points: 25,
         img: "images/choices/nap.png",
+        x: 500,
+        y: 100,
     },
     {
         name: "Do some code review",
         points: 7,
         img: "images/choices/codereview.png",
+        x: 600,
+        y: 100,
     },
     {
         name: "Stop and take a deep breath",
         points: 25,
         img: "images/choices/breath.png",
+        x: 0,
+        y: 200,
     },
     {
         name: "Look for some developer pranks",
         points: 5,
-        img: "images/choices/prank.png"
+        img: "images/choices/prank.png",
+        x: 100,
+        y: 200,
     },
 ];
