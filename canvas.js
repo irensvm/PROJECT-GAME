@@ -182,8 +182,12 @@ function selectRight() {
 
 
 
-
-
+//playerPoints() = selectedChoices.reduce((total, item) => {
+//        return total + item.points
+//    }, 0
+//
+//)
+//console.log(playerPoints);
 
 
 

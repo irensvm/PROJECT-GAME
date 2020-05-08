@@ -58,11 +58,14 @@ class Game {
         return this.choices.length === this.rondas
     }
 
-    playerWon() {
-        if (this.playerpoints > 25)
-            return true
-    }
+    // playerWon() {
+    //     if (this.playerPoints > 25)
+    //         return true
+    // }
 
+    playerWon() {
+        printresult1()
+    }
 
 
 
