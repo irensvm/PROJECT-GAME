@@ -61,8 +61,16 @@ function updateCanvas() {
 
         i += 1
     })
-    //selectedChoicesText.map(i => {
-    //    ctx.fillText(i.name, i.coord, 300)
+    //selectedChoices.map(item => {
+    //    if (i === 0) {
+    //        printChoiceText(item, 40);
+    //    } else {
+    //        printChoiceText(item, 400);
+    //
+    //    }
+    //
+    //
+    //    i += 1
     //})
 }
 
@@ -130,11 +138,11 @@ function printChoice(item, position) {
     }
 }
 
-//function printChoiceText() {
+//function printChoiceText(item, position) {
 //    selectedChoices.map(i => {
 //        ctx.font = "30px Arial";
 //        ctx.fillStyle = "yellow";
-//        ctx.fillText(i.name, 50, 100, canvas.width / 2, canvas.height / 2)
+//        ctx.fillText(i.name, canvas.width / 2, position)
 //    })
 //
 //
