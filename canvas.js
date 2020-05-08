@@ -48,8 +48,18 @@ function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(canvasBckgr, 0, 0);
     ctx.drawImage(player.img, player.x, player.y);
-    selectedChoices.map(i => {
-        printChoice(i);
+    let i = 0;
+
+    selectedChoices.map(item => {
+        if (i === 0) {
+            printChoice(item, 500);
+        } else {
+            printChoice(item, 100);
+
+        }
+
+
+        i += 1
     })
 }
 
@@ -106,16 +116,14 @@ function pickChoice(n) {
 
 
 
-function printChoice(item) {
+function printChoice(item, position) {
+
 
     var img = new Image();
     img.src = item.img;
     img.onload = () => {
-        ctx.drawImage(img, item.x, item.y, 40, 40);
-
+        ctx.drawImage(img, position, canvas.height / 2, 40, 40);
     }
-
-
 }
 
 
@@ -137,13 +145,10 @@ function checkChoices() {
 
 function selectLeft() {
     console.log("izqda selecc")
-    console.log(selectedChoices[0]);
     game.addSelectedChoice(selectedChoices[0])
     if (game.hasEnded()) {
         return printEndGame();
     }
-    return selectedChoices = pickChoice(7);
-
 }
 
 function selectRight() {
@@ -152,12 +157,6 @@ function selectRight() {
     if (game.hasEnded()) {
         return printEndGame();
     }
-    console.log(selectedChoices[1]);
-
-    return selectedChoices = pickChoice(7);
-
-
-
 }
 
 
